@@ -1,0 +1,9 @@
+fragment Register on Register {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  email
+  password
+}

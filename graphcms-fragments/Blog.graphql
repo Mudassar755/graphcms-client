@@ -1,0 +1,10 @@
+fragment Blog on Blog {
+  stage
+  remoteId: id
+  createdAt
+  updatedAt
+  publishedAt
+  title
+  slug
+  description
+}
