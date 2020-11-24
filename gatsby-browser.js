@@ -5,6 +5,7 @@ import { ApolloProvider } from '@apollo/client';
 import { client } from './src/apollo//client';
 import "./src/assets/css/theme.bundle.css"
 import "./src/assets/css/libs.bundle.css"
+import "./src/assets/css/blog.style.css"
 
 export const wrapRootElement = ({ element }) => (
     <ApolloProvider client={client}>{element}</ApolloProvider>

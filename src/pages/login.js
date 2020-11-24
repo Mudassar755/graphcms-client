@@ -1,55 +1,67 @@
 import { graphql, Link } from 'gatsby';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cover_14 from '../assets/img/covers/cover-14.jpg'
 import gql from 'graphql-tag';
-import { useMutation, useQuery } from '@apollo/client';
+import { useMutation, useQuery, useLazyQuery } from '@apollo/client';
+import { VerifyToken } from '../utils/authToken';
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const Login = ({ data }) => {
+const Login = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: ""
-    })
+    });
+    const [authUserId, setAuthUserId] = useState("")
+
+    let user;
+
     const { email, password } = formData;
-    // const [createRegister] = useMutation(CREATE_USER);
-    // const [register] = useQuery(GET_USER);
+    const [getUser, { loading, data }] = useLazyQuery(GET_USER);
+    if (data && data.register) {
+        user = data.register
+    }
     const handleChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        // const { data } = await register({ variables: { email: email } });
 
-        // let user = await User.findOne({ email });
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            alert("Email or Password is incorrect!")
+            return
+        }
 
-        // if (!user) {
-        //     return res
-        //         .status(400)
-        //         .json({ errors: [{ msg: "User does not exist" }] });
-        // }
-        // const salt = await bcrypt.genSalt(10);
-        // let hash_password = await bcrypt.hash(password, salt);
-
-        // const { data } = await createRegister({ variables: { email: email, password: hash_password } });
-        // const payload = {
-        //     user: {
-        //         id: data.createRegister.id
-        //     }
-        // };
-        // jwt.sign(
-        //     payload,
-        //     "JwtSecret",
-        //     { expiresIn: 3600 },
-        //     (err, token) => {
-        //         if (err) throw err;
-        //         localStorage.setItem("token", token);
-        //     }
-        // );
+        const payload = {
+            user: {
+                id: user.id
+            }
+        };
+        jwt.sign(
+            payload,
+            "JwtSecret",
+            async (err, token) => {
+                if (err) throw err;
+                localStorage.setItem("token", token);
+                let verifiedUser = await VerifyToken(token);
+                if (verifiedUser) {
+                    window.location.href = "/"
+                }
+            }
+        );
 
     }
-    console.log("data", data)
+    useEffect(() => {
+        let token = localStorage.getItem("token")
+        let authUser = VerifyToken(token);
+        if (authUser) {
+            window.location.href = "/"
+        }
+        // setAuthUserId(authUser.id)
+    }, [])
+    // console.log("data", data)
     return (
         // <!-- CONTENT -->
         <section>
@@ -83,6 +95,7 @@ const Login = ({ data }) => {
                                     name="email"
                                     value={email}
                                     onChange={handleChange}
+                                    onBlur={e => getUser({ variables: { email: email } })}
                                 />
                             </div>
 
@@ -134,29 +147,38 @@ const Login = ({ data }) => {
     )
 }
 
-export const GET_USER = graphql`
-  query{
-    graphCmsData {
-      register(where: {email: "admin@contentarcade.com"}) {
+export const GET_USER = gql`
+  query register($email: String!){
+      register(where: {email: $email}) {
+        id
         email
         password
       }
-    }
+    
+  }`;
+export const AUTH_USER = gql`
+  query register($id: String!){
+      register(where: {id: $id}) {
+        id
+        email
+        password
+      }
+    
   }`;
 
-export const AUTH_USER = gql`
- mutation createRegister($email: String!, $password: String!) {
-        createRegister(
-          data: {
-            email: $email
-            password: $password
+// export const AUTH_USER = gql`
+//  mutation createRegister($email: String!, $password: String!) {
+//         createRegister(
+//           data: {
+//             email: $email
+//             password: $password
 
-          }
-        ) {
-          id
-          email
-          password
-        }
-      }
-`;
+//           }
+//         ) {
+//           id
+//           email
+//           password
+//         }
+//       }
+// `;
 export default Login;

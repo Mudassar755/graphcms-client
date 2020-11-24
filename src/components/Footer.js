@@ -5,15 +5,18 @@ import facebook from '../assets/img/icons/social/facebook.svg';
 import twitter from '../assets/img/icons/social/twitter.svg';
 import painterest from '../assets/img/icons/social/pinterest.svg';
 import { Link } from 'gatsby';
+import { useState } from 'react';
 
 const Footer = () => {
-    let path;
+    const [path, setPath] = useState("")
+    // let path;
     useEffect(() => {
-        path = window.location.pathname;
+        setPath(window.location.pathname)
+        console.log("window.location.pathname", window.location.pathname)
     })
-
+    console.log("path", path)
     return (
-        <footer className={`py-8 py-md-11 ${path === "/contact" ? "bg-dark" : 'bg-gray-200'}`}>
+        <footer className={`py-8 py-md-11 ${path.includes("contact") ? "bg-dark" : 'bg-gray-200'}`}>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-4 col-lg-3">

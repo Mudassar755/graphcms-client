@@ -1,8 +1,9 @@
 import { useMutation } from '@apollo/client';
 import { graphql, Link } from 'gatsby';
 import gql from 'graphql-tag';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cover_15 from '../assets/img/covers/cover-15.jpg'
+import { VerifyToken } from '../utils/authToken';
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 // const config = require("config");
@@ -33,15 +34,27 @@ const SignUp = () => {
         jwt.sign(
             payload,
             "JwtSecret",
-            { expiresIn: 3600 },
-            (err, token) => {
+            async (err, token) => {
                 if (err) throw err;
                 localStorage.setItem("token", token);
+                let verifiedUser = await VerifyToken(token);
+                if (verifiedUser) {
+                    window.location.href = "/"
+                }
             }
         );
         console.log("data", data.createRegister)
 
     }
+
+    useEffect(() => {
+        let token = localStorage.getItem("token")
+        let authUser = VerifyToken(token);
+        if (authUser) {
+            window.location.href = "/"
+        }
+
+    }, [])
 
     return (
         // <!-- CONTENT -->

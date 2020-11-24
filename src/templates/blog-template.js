@@ -97,22 +97,22 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                                     This is a caption on this photo for reference
                   </figcaption>
                             </figure>
-                            {/* Text */}
-                            <p>
+
+                            {/* <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi reiciendis odio perferendis libero saepe voluptatum fugiat dolore voluptates aut, ut quas doloremque quo ad quis ipsum molestias neque pariatur commodi.
-                </p>
+                            </p>
                             <p className="mb-0">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, quidem, earum! Quo fugiat voluptates similique quidem dolorem ex non quibusdam odio suscipit error, maiores, itaque blanditiis vel, sed, cum velit?
-                </p>
+                            </p> */}
                         </div>
-                    </div> {/* / .row */}
-                </div> {/* / .container */}
+                    </div>
+                </div>
             </section>
             {/* SECTION */}
             <section className="pt-6 pt-md-8">
                 <div className="container">
                     <div className="row justify-content-center">
-                        <div className="col-12 col-md-10 col-lg-9 col-xl-8">
+                        <div className="col-12 col-md-10 col-lg-9 col-xl-8 blog-content">
                             <div dangerouslySetInnerHTML={{ __html: blog.content.html }} />
                             {/* {blog.content.html} */}
                             {/* {blog.content.markdown} */}
@@ -137,60 +137,60 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
             </section>
 
             {/* SECTION */}
-            <section className="pt-6 pt-md-8">
+            {/* <section className="pt-6 pt-md-8">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-12 col-md-10 col-lg-9 col-xl-8">
-                            {/* Heading */}
+                           
                             <h3 className="font-weight-bold">
                                 Small heading for a smaller transition
                 </h3>
-                            {/* Text */}
+                            
                             <p className="mb-7">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi reiciendis odio perferendis libero saepe voluptatum fugiat dolore voluptates aut, ut quas doloremque quo ad quis ipsum molestias neque pariatur commodi.
                 </p>
-                            {/* Divider */}
+                            
                             <hr className="hr-md mb-7" />
-                            {/* Blockquote */}
+                            
                             <blockquote className="blockquote mb-7">
                                 <p className="h2 mb-0 text-center text-primary-desat">
                                     “So many teams struggle to make their onboarding experience anywhere near as good as their core product, so the results of this is poor retention”
                   </p>
                             </blockquote>
-                            {/* Divider */}
+                           
                             <hr className="hr-md mb-7" />
-                            {/* Text */}
+                            
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ducimus provident, quos sint hic, quidem voluptatibus. Quasi, distinctio cupiditate, omnis vitae maxime nisi eum similique libero ad dolore sint tempora.
                 </p>
-                            {/* List */}
+                           
                             <ul className="list-unstyled mb-7">
                                 <li className="d-flex">
-                                    {/* Check */}
+                                    
                                     <div className="badge badge-rounded-circle bg-success-soft mt-1 mr-4">
                                         <i className="fe fe-check" />
                                     </div>
-                                    {/* Text */}
+                                   
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis quo labore, deleniti optio non, voluptate illo doloribus odio iure molestiae eos tempora nobis.
                     </p>
                                 </li>
                                 <li className="d-flex">
-                                    {/* Check */}
+                                    
                                     <div className="badge badge-rounded-circle bg-success-soft mt-1 mr-4">
                                         <i className="fe fe-check" />
                                     </div>
-                                    {/* Text */}
+                                   
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis quo labore, deleniti optio non, voluptate illo doloribus odio iure molestiae eos tempora nobis.
                     </p>
                                 </li>
                                 <li className="d-flex">
-                                    {/* Check */}
+                                   
                                     <div className="badge badge-rounded-circle bg-success-soft mt-1 mr-4">
                                         <i className="fe fe-check" />
                                     </div>
-                                    {/* Text */}
+                                   
                                     <p>
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis quo labore, deleniti optio non, voluptate illo doloribus odio iure molestiae eos tempora nobis.
                     </p>
@@ -198,11 +198,11 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                             </ul>
 
                         </div>
-                    </div> {/* / .row */}
-                </div> {/* / .container */}
-            </section>
+                    </div> 
+                </div> 
+            </section> */}
             {/* SECTION */}
-            <section className="pt-6 pt-md-8">
+            {/* <section className="pt-6 pt-md-8">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-12 col-md-10 col-lg-9 col-xl-8">
@@ -220,9 +220,9 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             {/* SECTION */}
-            <section className="pt-6 pt-md-8">
+            {/* <section className="pt-6 pt-md-8">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-12 col-lg-11 col-xl-10">
@@ -232,22 +232,22 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                                     <div className="col-12 col-md-6 bg-cover card-img-left" style={{ backgroundImage: `url(${photo_15})` }}>
 
                                         <img src={photo_15} alt="..." className="img-fluid d-md-none invisible" />
-                                        {/* Shape */}
+                                       
                                         <div className="shape shape-right shape-fluid-y svg-shim text-white d-none d-md-block">
                                             <svg viewBox="0 0 112 690" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M116 0H51v172C76 384 0 517 0 517v173h116V0z" fill="currentColor" /></svg>
                                         </div>
                                     </div>
                                     <div className="col-12 col-md-6">
                                         <div className="card-body">
-                                            {/* Heading */}
+                                           
                                             <h3 className="font-weight-bold">
                                                 Freelance guide
                                             </h3>
-                                            {/* Text */}
+                                            
                                             <p className="text-muted">
                                                 Find out the best tricks and tips to living life anywhere you want.
                                             </p>
-                                            {/* Form */}
+                                        
                                             <form>
                                                 <div className="form-label-group">
                                                     <input type="text" className="form-control form-control-flush" id="cardName" placeholder="Name" />
@@ -270,16 +270,16 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             {/* SECTION */}
             <section className="pt-6 pt-md-8 pb-8 pb-md-11">
                 <div className="container">
                     <div className="row justify-content-center">
                         <div className="col-12 col-md-10 col-lg-9 col-xl-8">
                             {/* Text */}
-                            <p className="mb-7">
+                            {/* <p className="mb-7">
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, quod a illum, cumque recusandae quae ea tempore, fugit, expedita vero natus aliquam nulla accusamus! Commodi culpa quibusdam accusamus aspernatur eveniet.
-                </p>
+                            </p> */}
                             {/* Meta */}
                             <div className="row align-items-center py-5 border-top border-bottom">
                                 <div className="col-auto">
@@ -334,15 +334,15 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                 </div>
             </div>
             {/* ARTICLES */}
-            <section className="pt-7 pt-md-10">
+            {/* <section className="pt-7 pt-md-10">
                 <div className="container">
                     <div className="row">
                         <div className="col-12">
-                            {/* Card */}
+                           
                             <div className="card card-row shadow-light-lg mb-6 lift lift-lg">
                                 <div className="row gx-0">
                                     <div className="col-12">
-                                        {/* Badge */}
+                                       
                                         <span className="badge rounded-pill bg-light badge-float badge-float-inside">
                                             <span className="h6 text-uppercase">Featured</span>
                                         </span>
@@ -390,7 +390,7 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             {/* ARTICLES */}
             <section className="pt-7 pt-md-10">
                 <div className="container">
@@ -407,9 +407,9 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                         </div>
                         <div className="col-12 col-md-auto">
 
-                            <a href="#!" className="btn btn-sm btn-outline-gray-300 d-none d-md-inline">
+                            <Link to="/blogs" className="btn btn-sm btn-outline-gray-300 d-none d-md-inline">
                                 View all
-                             </a>
+                             </Link>
                         </div>
                     </div>
                     <div className="row">
@@ -454,13 +454,13 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                                     </h6>
 
                                         <p className="h6 text-uppercase text-muted mb-0 ml-auto">
-                                            <time dateTime="2019-05-02">May 02</time>
+                                            <time dateTime="2019-05-02">{latestBlog.createdAt}</time>
                                         </p>
                                     </a>
                                 </div>
                             </div>
                         ))}
-                        <div className="col-12 col-md-6 col-lg-4 d-flex">
+                        {/* <div className="col-12 col-md-6 col-lg-4 d-flex">
 
                             <div className="card mb-6 mb-lg-0 shadow-light-lg lift lift-lg">
 
@@ -547,8 +547,8 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                                     </p>
                                 </a>
                             </div>
-                        </div>
-                        <div className="col-12 col-md-6 col-lg-4 d-flex">
+                        </div> */}
+                        {/* <div className="col-12 col-md-6 col-lg-4 d-flex">
 
                             <div className="card d-lg-none shadow-light-lg lift lift-lg">
 
@@ -591,26 +591,26 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                                     </p>
                                 </a>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </section>
             {/* CTA */}
-            <section className="pt-7 pt-md-10 bg-light">
+            {/* <section className="pt-7 pt-md-10 bg-light">
                 <div className="container py-6 py-md-8 border-top border-bottom border-gray-300">
                     <div className="row align-items-center">
                         <div className="col-12 col-md">
-                            {/* Heading */}
+                            
                             <h3 className="mb-1 font-weight-bold">
                                 Get our stories delivered
                 </h3>
-                            {/* Text */}
+                           
                             <p className="font-size-lg text-muted mb-6 mb-md-0">
                                 From us to your inbox weekly.
                 </p>
                         </div>
                         <div className="col-12 col-md-5">
-                            {/* Form */}
+                           
                             <form>
                                 <div className="row">
                                     <div className="col">
@@ -628,7 +628,7 @@ const BlogTemplate = ({ data: { graphCmsData: { blog, blogs } } }) => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </Layout>
     )
 }
