@@ -415,7 +415,7 @@ const Navbar = () => {
                                     </a>
 
                                     </li>
-                                    <li class="dropdown-item ">
+                                    {/* <li class="dropdown-item ">
                                         <a class="dropdown-link" href="#">
                                             Sign In
                                     </a>
@@ -438,7 +438,7 @@ const Navbar = () => {
                                             Error
                                     </a>
 
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </li>
                         </ul> : <ul className="navbar-nav ml-auto"> <Link className="navbar-btn btn btn-sm btn-primary lift ml-2" to="/login" target="_blank">
